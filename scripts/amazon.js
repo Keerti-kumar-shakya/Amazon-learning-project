@@ -73,8 +73,6 @@ function updateCartQuantity() {
   })
 
   document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-
-  console.log(cartQuantity);
 }
 
 document.querySelectorAll('.js-add-to-cart').forEach( (button) =>{
@@ -89,6 +87,7 @@ document.querySelectorAll('.js-add-to-cart').forEach( (button) =>{
    setTimeout(() => {
     addedMessage.classList.remove('added-to-cart-visible');
    }, 2000);
-
+   console.log(cart);
   });
+ 
 });

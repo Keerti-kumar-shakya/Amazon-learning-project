@@ -9,6 +9,7 @@ import { deliveryOptions } from "../data/deliveryOptions.js";
 
 //console.log(date);
 
+function renderOrderSummary() {
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem) => {
@@ -105,19 +106,19 @@ cart.forEach((cartItem) => {
     data-delivery-option-id = "${deliveryOption.id}"
     >
    
-            <input type="radio"
-            ${isChecked ? 'checked' : ''}
-              class="delivery-option-input"
-              name="delivery-option-${matchingProduct.id}">
-            <div>
-              <div class="delivery-option-date">
-                ${dateString}
-              </div>
-              <div class="delivery-option-price">
-               ${priceString} Shipping
-              </div>
-            </div>
-          </div>
+    <input type="radio"
+    ${isChecked ? 'checked' : ''}
+      class="delivery-option-input"
+      name="delivery-option-${matchingProduct.id}">
+    <div>
+      <div class="delivery-option-date">
+        ${dateString}
+      </div>
+      <div class="delivery-option-price">
+      ${priceString} Shipping
+      </div>
+    </div>
+  </div>
     `
   })
 
@@ -144,6 +145,7 @@ cart.forEach((cartItem) => {
     element.addEventListener('click', () => {
       const {productId, deliveryOptionId} = element.dataset;
       updateDeliveryOptions(productId, deliveryOptionId);
+      renderOrderSummary();
     });
    });
 
@@ -188,6 +190,9 @@ cart.forEach((cartItem) => {
       updateCartQuantity();
     });
   });
+}
+
+renderOrderSummary()
 
 //  function checkOut() {
 

@@ -67,3 +67,4 @@ shippingPriceCents += deliveryOption.priceCents;
 
  document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
 }
+

@@ -4,12 +4,10 @@ import { formatCurrency } from "../utils/money.js";
 //import {hello} from 'https://unpkg.com/supersimpledev@1.0.1/hello.esm.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import { deliveryOptions,  getDeliveryOption} from "../../data/deliveryOptions.js";
-
-//console.log(dayjs);
-
-//console.log(date);
+import { renderPaymentSummary } from "./paymentSummary.js";
 
 export function renderOrderSummary() {
+ 
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem) => {
@@ -70,11 +68,12 @@ cart.forEach((cartItem) => {
       </div>
     </div>
   `;
-
+  
  });
 
 
  function deliveryOptionsHTML(matchingProduct, cartItem) {
+  
  let html = '';
 
   deliveryOptions.forEach((deliveryOption) =>{
@@ -125,6 +124,7 @@ cart.forEach((cartItem) => {
      
      //checkOut()
      updateCartQuantity()
+     renderPaymentSummary()
    });
    })
 
@@ -133,6 +133,7 @@ cart.forEach((cartItem) => {
       const {productId, deliveryOptionId} = element.dataset;
       updateDeliveryOptions(productId, deliveryOptionId);
       renderOrderSummary();
+      renderPaymentSummary();
     });
    });
 
@@ -175,8 +176,10 @@ cart.forEach((cartItem) => {
       );
       quantityLabel.innerHTML = newQuantity;
       updateCartQuantity();
+      renderPaymentSummary()
     });
   });
+
 }
 
 

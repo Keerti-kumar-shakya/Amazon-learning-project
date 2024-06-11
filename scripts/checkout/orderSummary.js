@@ -178,14 +178,11 @@ cart.forEach((cartItem) => {
       quantityLabel.innerHTML = newQuantity;
       updateCartQuantity();
       renderPaymentSummary()
-
-      
+   
     });
   });
 
 }
-
-
 
 //  function checkOut() {
 
@@ -207,7 +204,7 @@ function updateCartQuantity() {
   
   }
   
- updateCartQuantity()
+ updateCartQuantity();
  
 
 

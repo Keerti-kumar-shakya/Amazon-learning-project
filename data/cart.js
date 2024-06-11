@@ -1,3 +1,6 @@
+// this Procedural programming
+// procedure = a set of step-by-step instructions;
+// set of step-by-step instruction and this is basically a function so in procedural programming we organize our code into separate.
 
 export let cart;
 

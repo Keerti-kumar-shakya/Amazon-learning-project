@@ -106,6 +106,10 @@ console.log(businessCart instanceof Cart);
 //1.) Has to be named "constructor"
 //2.) Should not return anything from constructor.
 
+//Important feature of method called Private properties and methods.
+//1.) private properties create only inside class through '#' which help us to make Private properties and no one can change this properties.
+
+
 
 
 

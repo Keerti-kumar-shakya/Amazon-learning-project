@@ -55,6 +55,8 @@ class Clothing extends Product {
   }
 }
 
+console.log(this);
+
 
 
 export const products = [
@@ -746,3 +748,54 @@ export const products = [
 });
 
 //console.log(products);
+
+/* const object2 = {
+  a:  2,
+  b: this.a,
+  function() {
+    console.log(this.a);
+  }
+};
+
+object2.function()
+
+
+function logThis() {
+  console.log(this);
+}
+
+logThis()
+logThis.call('keerti')
+
+const  object4 = {
+  method() {
+    console.log(this);
+
+    [1,2,3].forEach(() =>{
+    console.log(this);
+    })
+  }
+  
+}
+
+object4.method()
+*/
+
+/***************** Summary of "this" ********************/
+
+const  object3 = {
+  method(){
+    console.log(this);
+  }
+  //1.)inside a method, "this" points to the outer object.
+}
+
+function logThis() {//2.)Inside a function, this =  undefined
+  console.log(this);
+}
+logThis.call('hello');//But we can change it.
+
+
+[1,2,3].forEach(()=> {// 3.)Arrow functions, do not changed the value of "this";
+  console.log(this);
+})

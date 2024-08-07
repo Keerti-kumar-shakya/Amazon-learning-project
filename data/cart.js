@@ -91,7 +91,7 @@ export function calculateCartQuantity() {
 
 
 export function updateDeliveryOptions(productId, deliveryOptionId) {
-  let matchingItem;
+  let matchingItem; 
 
   cart.forEach( (cartItem) =>{
    if (productId === cartItem.productId) {

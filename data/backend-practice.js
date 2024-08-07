@@ -1,10 +1,10 @@
 // XMLHttpRequest This is a built-in class (provided by JavaScript);
 
-const xhr = new XMLHttpRequest();
+// const xhr = new XMLHttpRequest();
 
-xhr.addEventListener('load', () => {
-  console.log(xhr.response);
-});
+// xhr.addEventListener('load', () => {
+//   console.log(xhr.response);
+// });
 
-xhr.open('GET', 'https://supersimplebackend.dev/images/apple.jpg');
-xhr.send();
+// xhr.open('GET', 'https://supersimplebackend.dev/images/apple.jpg');
+// xhr.send();

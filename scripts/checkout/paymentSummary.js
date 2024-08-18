@@ -2,6 +2,7 @@ import { cart } from "../../data/cart.js";
 import { getProduct } from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryOptions.js";
 import { formatCurrency } from "../utils/money.js";
+import { addOrder } from "../../data/orders.js";
 
 export function renderPaymentSummary() {
   let productPriceCents = 0;
@@ -60,11 +61,41 @@ shippingPriceCents += deliveryOption.priceCents;
     </div>
     </div>
 
-    <button class="place-order-button button-primary">
+    <button class="place-order-button button-primary js-place-order">
     Place your order
     </button>
  `;
 
  document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML;
+
+ document.querySelector('.js-place-order').addEventListener('click', async () => {
+   try {
+      const response = await fetch('https://supersimplebackend.dev/orders', {
+   method: 'POST',
+   headers: {
+      'Content-Type': 'application/json' 
+   },
+   body: JSON.stringify({
+      cart: cart
+   })
+ });
+   const order = await response.json();
+   addOrder(order)
+ 
+   } catch (error) {
+      console.log('Unexpected error. Try again later.'); 
+   }
+   
+   window.location.href = 'orders.html';  
+  
+ });
 }
 
+
+// to send data in a request, we need to use a different type of request.
+
+// 4 types of requests 
+//1.) GET = get something from the backend.
+//2.) POST = create something
+//3.) PUT = update something
+//4.) DELETE = delete something
